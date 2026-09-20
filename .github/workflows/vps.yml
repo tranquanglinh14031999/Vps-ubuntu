@@ -1,1 +1,26 @@
+name: Ubuntu VPS
 
+on:
+  workflow_dispatch:
+
+jobs:
+  vps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test Ubuntu
+        run: |
+          echo "VPS UBUNTU DA KHOI DONG"
+          echo "CPU:"
+          nproc
+          echo "RAM:"
+          free -h
+          echo "DISK:"
+          df -h
+
+      - name: Keep running
+        run: |
+          for i in {1..60}; do
+            echo "VPS dang chay - $i"
+            sleep 60
+          done
